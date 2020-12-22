@@ -6,7 +6,7 @@ class Html
   end
 
   def print
-    File.write("#{Dir.pwd}/docx.html", doc)
+    File.write("#{Dir.pwd}/visual_call_html.html", doc)
   end
 
   private

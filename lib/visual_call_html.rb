@@ -3,10 +3,10 @@ require_relative 'html'
 
 module VisualCallHtml
   class << self
-    def trace
+    def trace(options = {})
       return unless block_given?
 
-      tracer = Tracer.new
+      tracer = Tracer.new(options)
       tracer.enable
       yield
       tracer.disable

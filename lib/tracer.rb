@@ -1,7 +1,8 @@
 class Tracer
   attr_reader :path, :data
 
-  def initialize
+  def initialize(options = {})
+    @options = options
     @trace = build_tracer
     @path = []
     @data = []
@@ -27,7 +28,7 @@ class Tracer
 
       case event.event
       when :return
-        event.return_value && @data.push(
+        @options[:display_return_value] && event.return_value && @data.push(
           key: uniq_key,
           parent: @path.last,
           text: "Return: #{event.return_value}"
